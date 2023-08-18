@@ -5,7 +5,7 @@ export const useRutaStore = defineStore("ruta", () => {
 
     const getRutas = async () => {
         try {
-            return axios.get("http://localhost:3100/ruta");
+            return axios.get("https://coofronteras.onrender.com/ruta");
         } catch (error) {
             throw new Error("No se pudieron obtener las rutas");
         }
@@ -13,7 +13,7 @@ export const useRutaStore = defineStore("ruta", () => {
 
     const postRuta = async (datos) => {
         try {
-            return axios.post("http://localhost:3100/ruta", datos);
+            return axios.post("https://coofronteras.onrender.com/ruta", datos);
         } catch (error) {
             throw new Error("No se pudo agregar la ruta");
         }

@@ -5,7 +5,7 @@ export const useUsuarioStore = defineStore("usuario", () => {
 
     const getUsuarios = async () => {
         try {
-            return axios.get("http://localhost:3100/usuario");
+            return axios.get("https://coofronteras.onrender.com/usuario");
         } catch (error) {
             throw new Error("No se pudieron obtener los usuarios");
         }
@@ -13,7 +13,7 @@ export const useUsuarioStore = defineStore("usuario", () => {
 
     const postUsuario = async (datos) => {
         try {
-            return axios.post("http://localhost:3100/usuario", datos);
+            return axios.post("https://coofronteras.onrender.com/usuario", datos);
         } catch (error) {
             throw new Error("No se pudo agregar el usuario");
         }

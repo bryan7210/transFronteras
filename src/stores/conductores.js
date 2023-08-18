@@ -5,14 +5,14 @@ export const useConductorStore = defineStore("conductor", ()=>{
  
     const getConductores = async ()=>{
         try {
-            return axios.get("http://localhost:3100/conductor")
+            return axios.get("https://coofronteras.onrender.com/conductor")
         } catch (error) { 
             return error
         } 
     }
     const postconductor = async (datos) => {
         try {
-            return axios.post("http://localhost:3100/conductor", datos);
+            return axios.post("https://coofronteras.onrender.com/conductor", datos);
         } catch (error) {
             throw new Error("No se pudo agregar el conductor");
         }

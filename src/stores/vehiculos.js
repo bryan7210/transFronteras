@@ -5,7 +5,7 @@ export const useVehiculoStore = defineStore("vehiculo", ()=>{
 
     const getVehiculos = async ()=>{ 
         try {
-            return axios.get("http://localhost:3100/vehiculo")
+            return axios.get("https://coofronteras.onrender.com/vehiculo")
         } catch (error) {
            
          
@@ -15,14 +15,14 @@ export const useVehiculoStore = defineStore("vehiculo", ()=>{
 
     const postVehiculo = async (datos)=>{
         try {
-            return axios.post("http://localhost:3100/vehiculo",datos)
+            return axios.post("https://coofronteras.onrender.com/vehiculo",datos)
         } catch (error) {
             throw new Error("No se pudo agregar el vehículo"); 
         }
     } 
     const editVehiculo = async (id, datos) => {
         try {
-          return axios.put(`http://localhost:3100/vehiculo/${id}`, datos);
+          return axios.put(`https://coofronteras.onrender.com/vehiculo/${id}`, datos);
         } catch (error) {
           throw new Error("No se pudo editar el vehículo");
         }

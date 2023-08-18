@@ -5,7 +5,7 @@ export const useTicketStore = defineStore("ticket", () => {
 
     const getTickets = async () => {
         try {
-            return axios.get("http://localhost:3100/tikeck");
+            return axios.get("https://coofronteras.onrender.com/tikeck");
         } catch (error) {
             throw new Error("No se pudieron obtener los tickets");
         }
@@ -13,7 +13,7 @@ export const useTicketStore = defineStore("ticket", () => {
 
     const postTicket = async (datos) => {
         try {
-            return axios.post("http://localhost:3100/tikeck", datos);
+            return axios.post("https://coofronteras.onrender.com/tikeck", datos);
         } catch (error) {
             throw new Error("No se pudo agregar el ticket");
         }
