@@ -8,8 +8,8 @@ const vehiculoSchema = new mongoose.Schema({
     tecnomecanica : {type: String, required: true},
     capacidad : {type: String, required: true}, 
     createAt : {type:Date, default:Date.now}, 
-    conductor : { type: mongoose.Types.ObjectId, default: mongoose.Types.ObjectId, ref:'Conductor', required:true},
+    conductor : { type: mongoose.Types.ObjectId,  ref:'Conductor', required:false},
     estado: { type: Boolean, default: true } // 1 es activo y 0 inactivo
-})
+}) 
  
 export default mongoose.model("Vehiculo", vehiculoSchema)  

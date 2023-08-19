@@ -11,7 +11,7 @@ export const useVehiculoStore = defineStore("vehiculo", ()=>{
          
             throw new Error("No se pudieron obtener los vehículos");
         } 
-    }
+    } 
 
     const postVehiculo = async (datos)=>{
         try {

@@ -8,7 +8,7 @@
             <th>Placa</th>
             <th>Número</th>
             <th>dueño</th> 
-            
+            <th>conductor</th>
             <th>estado</th>
             <th>Acciones</th> 
           </tr> 
@@ -18,6 +18,7 @@
             <td>{{ vehiculo.matricula }}</td>
             <td>{{ vehiculo.num_vehiculo }}</td>
             <td>{{ vehiculo.propietario }}</td>
+            <td> {{  vehiculo.conduc }}</td>
           
             <td>
               {{ vehiculo.estado==true ?'Activo':'Inactivo' }}
@@ -67,7 +68,11 @@
 
       <h4>Número de Vehículo</h4>
       <input type="text" v-model="num_vehiculo" placeholder="Número de Vehículo..." />
-
+       <h4>Conductor</h4>
+       <select v-model="conduc">
+        <option value="" disabled selected>Seleccione...</option>
+         <option :value="c._id" v-for="(c,i) in conductores" :key="i">{{ c.nombre }}</option>
+        </select>
       
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
@@ -119,7 +124,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from "vue";; // Asegúrate de proporcionar la ruta correcta
+import { ref, computed, onMounted, watch } from "vue";; // Asegúrate de proporcionar la ruta correcta
 import { useVehiculoStore } from "../stores/vehiculos.js"; // Importa tu store de vehículos
 import { useConductorStore } from "../stores/conductores.js"; // Importa tu store de conductores
 const storeVehiculos = useVehiculoStore();
@@ -137,6 +142,8 @@ const vehiculos = ref([]);
 const errorMessage = ref('');
 const mostrarError = ref(false);
 let indice =ref(null)
+
+
 
 
 const validarDatos = () => {
@@ -191,7 +198,7 @@ const mostrarFormulario = async () => {
 
 async function editarUsers() {
   console.log("pasando");
-  console.log();
+  
   
     let r = await storeVehiculos.editVehiculo(indice.value, {
    
@@ -201,6 +208,7 @@ async function editarUsers() {
         tecnomecanica: tecnomecanica.value,
         capasidad: capasidad.value,
         num_vehiculo: num_vehiculo.value,
+        conductor: conduc.value
        
 
         
@@ -222,6 +230,7 @@ async function editarVehiculo  (r) {
     tecnomecanica.value = r.tecnomecanica
     capasidad.value = r.capacidad
     num_vehiculo.value = r.num_vehiculo
+    conduc.value =r.conductor
 
 }
 
@@ -232,7 +241,7 @@ const limpiarCampos = async () => {
   tecnomecanica.value = '';
   capasidad.value = '';
   num_vehiculo.value = '';
-
+  conduc.value ='';
   obtenerVehiculos();
 };
 </script>

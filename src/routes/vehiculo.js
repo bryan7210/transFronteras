@@ -19,8 +19,8 @@ router.post("/", [
     validarResultados
 ], httpVehiculo.postVehiculo)
  
-router.put("/:matricula", httpVehiculo.putVehiculo)
+router.put("/:matricula/editar", httpVehiculo.putVehiculo)
 
-router.put("/:matricula", httpVehiculo.putVehiculoEstado)
+router.put("/:matricula/estado", httpVehiculo.putVehiculoEstado)
 
 export default router

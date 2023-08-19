@@ -1,4 +1,4 @@
- import VehiculoModel from "../models/vehiculo.js";
+import VehiculoModel from "../models/vehiculo.js";
 
 const httpVehiculo = {
   getVehiculos: async (req, res) => {  
@@ -51,13 +51,13 @@ const httpVehiculo = {
 
   putVehiculo: async (req, res) => {
     const { id } = req.params;
-    const {  matricula, propietario, soat, tecnomecanica, capacidad, num_vehiculo } = req.body;
+    const {  matricula, propietario, soat, tecnomecanica, capacidad, conductor,  num_vehiculo } = req.body;
 
     try {
       // Actualizar el vehículo en la base de datos
       const vehiculoActualizado = await VehiculoModel.findOneAndUpdate(
-        { id },
-        { $set: { matricula, propietario, soat, tecnomecanica, capacidad,   num_vehiculo } },
+        {  id },
+        { $set: { matricula, propietario, soat, tecnomecanica, capacidad, conductor,  num_vehiculo } },
         { new: true } // Devuelve el documento actualizado en la respuesta
       );
 
